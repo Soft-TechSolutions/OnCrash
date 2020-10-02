@@ -1,4 +1,4 @@
-# Custom Activity On Crash library
+# Custom Activity OnCrash library
 
 This library allows launching a custom activity when the app crashes, instead of showing the hated "Unfortunately, X has stopped" dialog.
 
@@ -42,7 +42,7 @@ public void onCreate() {
     super.onCreate();
 
     ExceptionConfig.Builder.create()
-        .backgroundMode(CaocConfig.BACKGROUND_MODE_SILENT) //default: CaocConfig.BACKGROUND_MODE_SHOW_CUSTOM
+        .backgroundMode(ExceptionConfig.BACKGROUND_MODE_SILENT) //default: ExceptionConfig.BACKGROUND_MODE_SHOW_CUSTOM
         .enabled(false) //default: true
         .showErrorDetails(false) //default: true
         .showRestartButton(false) //default: true
@@ -68,9 +68,9 @@ launchWhenInBackground(int);
 ```
 > This method defines if the error activity should be launched when the app crashes while on background.
 > There are three modes:
-> - `CaocConfig.BACKGROUND_MODE_SHOW_CUSTOM`: launch the error activity even if the app is in background.
-> - `CaocConfig.BACKGROUND_MODE_CRASH`: launch the default system error when the app is in background.
-> - `CaocConfig.BACKGROUND_MODE_SILENT`: crash silently when the app is in background.
+> - `ExceptionConfig.BACKGROUND_MODE_SHOW_CUSTOM`: launch the error activity even if the app is in background.
+> - `ExceptionConfig.BACKGROUND_MODE_CRASH`: launch the default system error when the app is in background.
+> - `ExceptionConfig.BACKGROUND_MODE_SILENT`: crash silently when the app is in background.
 >
 > The default is `ExceptionConfig.BACKGROUND_MODE_SHOW_CUSTOM`.
 
