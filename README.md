@@ -2,7 +2,7 @@
 
 This library allows launching a custom activity when the app crashes, instead of showing the hated "Unfortunately, X has stopped" dialog.
 
-![](https://github.com/Ereza/CustomActivityOnCrash/blob/master/images/frontpage.png)
+![](https://github.com/Soft-TechSolutions/OnCrash/blob/master/images/frontpage.png)
 
 ## How to use
 
@@ -41,7 +41,7 @@ Add a snippet like this to your `Application` class:
 public void onCreate() {
     super.onCreate();
 
-    CaocConfig.Builder.create()
+    ExceptionConfig.Builder.create()
         .backgroundMode(CaocConfig.BACKGROUND_MODE_SILENT) //default: CaocConfig.BACKGROUND_MODE_SHOW_CUSTOM
         .enabled(false) //default: true
         .showErrorDetails(false) //default: true
@@ -61,7 +61,7 @@ public void onCreate() {
 
 ### Custom behavior
 
-**Here is a more detailed explanation of each option that can be set using `CaocConfig.Builder`:**
+**Here is a more detailed explanation of each option that can be set using `ExceptionConfig.Builder`:**
 
 ```java
 launchWhenInBackground(int);
@@ -72,7 +72,7 @@ launchWhenInBackground(int);
 > - `CaocConfig.BACKGROUND_MODE_CRASH`: launch the default system error when the app is in background.
 > - `CaocConfig.BACKGROUND_MODE_SILENT`: crash silently when the app is in background.
 >
-> The default is `CaocConfig.BACKGROUND_MODE_SHOW_CUSTOM`.
+> The default is `ExceptionConfig.BACKGROUND_MODE_SHOW_CUSTOM`.
 
 ```java
 enabled(boolean);
@@ -204,15 +204,15 @@ You can also do it the old way and create a `customactivityoncrash_error_image` 
 
 You can provide new strings and translations for the default error activity strings by overriding the following strings:
 ```xml
-<string name="customactivityoncrash_error_activity_error_occurred_explanation">An unexpected error occurred.\nSorry for the inconvenience.</string>
-<string name="customactivityoncrash_error_activity_restart_app">Restart app</string>
-<string name="customactivityoncrash_error_activity_close_app">Close app</string>
-<string name="customactivityoncrash_error_activity_error_details">Error details</string>
-<string name="customactivityoncrash_error_activity_error_details_title">Error details</string>
-<string name="customactivityoncrash_error_activity_error_details_close">Close</string>
-<string name="customactivityoncrash_error_activity_error_details_copy">Copy to clipboard</string>
-<string name="customactivityoncrash_error_activity_error_details_copied">Copied to clipboard</string>
-<string name="customactivityoncrash_error_activity_error_details_clipboard_label">Error information</string>
+    <string name="error_occurred_explanation">An unexpected error occurred.\nSorry for the inconvenience.</string>
+    <string name="restart_app">Restart app</string>
+    <string name="close_app">Close app</string>
+    <string name="error_details">Error details</string>
+    <string name="error_details_title">Error details</string>
+    <string name="error_details_close">Close</string>
+    <string name="error_details_copy">Copy to clipboard</string>
+    <string name="error_details_copied">Copied to clipboard</string>
+    <string name="error_details_clipboard_label">Error information</string>
 ```
 
 *There is a `sample` project module with examples of these overrides. If in doubt, check the code in that module.*
@@ -283,12 +283,3 @@ The inner workings are based on [ACRA](https://github.com/ACRA/acra)'s dialog re
 * This will not catch native errors.
 * There is no guarantee that this will work on every device.
 * This library will not make you toast for breakfast :)
-
-## Contributing & license
-
-Any contribution in order to make this library better will be welcome!
-
-The library is licensed under the [Apache License 2.0](https://github.com/Ereza/CustomActivityOnCrash/blob/master/LICENSE).
-
-The bug image used in the default error activity is licensed under CC-BY by Riff: https://www.sketchport.com/drawing/6119265933459456/lady-bug
-If you use the image in your app, don't forget to mention that!
